@@ -24,16 +24,18 @@ class Database extends Config
     /**
      * The default database connection.
      */
-    public array $default = [
+    public $default = [
         'DSN'      => '',
-        'hostname' => 'localhost',
-        'username' => '',
-        'password' => '',
-        'database' => '',
+        'hostname' => '35.215.100.60',
+        'username' => 'ugk2cldmch3bs',
+        'password' => '349wapmqjsr3',
+        'database' => 'db8b8bciyeue09',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,
-        'DBDebug'  => true,
+        'DBDebug'  => (ENVIRONMENT !== 'production'),
+        'cacheOn'  => false,
+        'cacheDir' => '',
         'charset'  => 'utf8',
         'DBCollat' => 'utf8_general_ci',
         'swapPre'  => '',

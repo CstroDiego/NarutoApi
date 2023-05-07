@@ -488,7 +488,7 @@ class IncomingRequest extends Request
             // setting the exception handler, so if an exception is raised, an
             // error will be displayed even if in the production environment.
             // @codeCoverageIgnoreStart
-            exit('You have an empty or invalid baseURL. The baseURL value must be set in app/Config/App.php, or through the .env file.');
+            exit('You have an empty or invalid baseURL. The baseURL value must be set in app/Config/App.php, or through the ..env file.');
             // @codeCoverageIgnoreEnd
         }
 
