@@ -8,7 +8,7 @@ class NarutoModel extends Model
 {
     protected $table = "NarutoAPI";
     protected $primaryKey = "id";
-    protected $allowedFields = ['nombre', 'clan', 'aldea', 'rango', 'descripcion'];
+    protected $allowedFields = ['nombre', 'clan', 'aldea', 'rango', 'descripcion', 'imagen'];
 
     protected $useTimestamps = true;
 

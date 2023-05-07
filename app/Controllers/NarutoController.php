@@ -4,20 +4,25 @@ namespace App\Controllers;
 
 use CodeIgniter\RESTful\ResourceController;
 
-class NarutoController extends ResourceController{
+class NarutoController extends ResourceController
+{
     protected $modelName = "App\Models\NarutoModel";
     protected $format = 'json';
 
-    public function index(){
-        $listaNaruto = $this->model->findAll();
-        return $this->respond($listaNaruto);
+    public function index()
+    {
+        $naruto = $this->model->findAll();
+        return $this->respond($naruto);
     }
 
-    public function show($id = null){
+    public function show($id = null)
+    {
         $naruto = $this->model->find($id);
         return $this->respond($naruto);
     }
-    public function create(){
+
+    public function create()
+    {
         $data = [
             "nombre" => $_POST["nombre"],
             "clan" => $_POST["clan"],
@@ -28,28 +33,31 @@ class NarutoController extends ResourceController{
         $respuesta = $this->model->save($data);
         return $this->respond($respuesta);
     }
-    function update($id = null){
+
+    function update($id = null)
+    {
         $data = $this->request->getPost();
         foreach ($data as $k => $v) {
-            if($v == ""){
+            if ($v == "") {
                 unset($data[$k]);
             }
         }
         $resultado = $this->model->update($id, $data);
-        if($resultado){
+        if ($resultado) {
             $resultado = ["NarutoAPI" => $this->model->find($id)];
-        }else{
+        } else {
             $resultado = ["error" => $this->model->errors()];
         }
         return $this->respond($resultado);
     }
 
-    function delete($id = null){
+    function delete($id = null)
+    {
         $naruto = $this->model->find($id);
-        if($naruto){
+        if ($naruto) {
             $this->model->delete($id);
             return $this->respond($naruto);
-        }else{
+        } else {
             return $this->respond(["error" => "No existe el personaje"]);
         }
     }
