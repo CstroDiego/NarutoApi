@@ -32,6 +32,10 @@ $routes->set404Override();
 $routes->get('/', 'Home::index');
 $routes ->resource("NarutoController");
 $routes->get('/naruto', 'NarutoController::index');
+$routes->get('/naruto/(:num)', 'NarutoController::show/$1');
+$routes->post('/naruto', 'NarutoController::create');
+$routes->post('/naruto/(:num)', 'NarutoController::update/$1');
+$routes->delete('/naruto/(:num)', 'NarutoController::delete/$1');
 
 /*
  * --------------------------------------------------------------------

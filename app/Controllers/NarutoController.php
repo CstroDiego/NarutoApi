@@ -28,7 +28,9 @@ class NarutoController extends ResourceController
             "clan" => $_POST["clan"],
             "aldea" => $_POST["aldea"],
             "rango" => $_POST["rango"],
-            "descripcion" => $_POST["descripcion"]
+            "descripcion" => $_POST["descripcion"],
+            "imagen" => $_POST["imagen"]
+
         ];
         $respuesta = $this->model->save($data);
         return $this->respond($respuesta);
